@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="m9P7PyuqE9iXfX4zWt6H">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sys" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fillColor=none;" value="Podcast Guest Scheduling &amp; Outline Builder" vertex="1">
+          <mxGeometry height="640" width="620" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="guest" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Podcast Guest" vertex="1">
+          <mxGeometry height="80" width="40" x="80" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="host" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Show Host" vertex="1">
+          <mxGeometry height="80" width="40" x="880" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="cal" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Calendar Service" vertex="1">
+          <mxGeometry height="80" width="40" x="960" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="notif" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Notification Service" vertex="1">
+          <mxGeometry height="80" width="40" x="960" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="uc01" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="UC-01&#xa;Publish Booking Availability" vertex="1">
+          <mxGeometry height="70" width="220" x="270" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uc02" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="UC-02&#xa;Book Interview Slot &amp; Submit Outline" vertex="1">
+          <mxGeometry height="80" width="220" x="270" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="uc03" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="UC-03&#xa;Review &amp; Approve Guest Outline" vertex="1">
+          <mxGeometry height="70" width="220" x="460" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="uc04" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="UC-04&#xa;Generate Run-of-Show Production Sheet" vertex="1">
+          <mxGeometry height="80" width="220" x="300" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="uc05" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="UC-05&#xa;Reschedule / Cancel Booking" vertex="1">
+          <mxGeometry height="70" width="220" x="240" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="uc07" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" value="UC-07&#xa;Send Calendar Invite &amp; Confirmation" vertex="1">
+          <mxGeometry height="80" width="240" x="580" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uc06" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" value="UC-06&#xa;Validate Slot Availability" vertex="1">
+          <mxGeometry height="70" width="240" x="580" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="uc08" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" value="UC-08&#xa;Compile Submitted Topics" vertex="1">
+          <mxGeometry height="70" width="240" x="580" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="uc09" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="UC-09&#xa;Export Timestamped PDF" vertex="1">
+          <mxGeometry height="70" width="240" x="500" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" edge="1" parent="1" source="guest" style="endArrow=none;html=1;" target="uc02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" edge="1" parent="1" source="guest" style="endArrow=none;html=1;" target="uc05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" edge="1" parent="1" source="host" style="endArrow=none;html=1;" target="uc01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" edge="1" parent="1" source="host" style="endArrow=none;html=1;" target="uc03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" edge="1" parent="1" source="host" style="endArrow=none;html=1;" target="uc04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a6" edge="1" parent="1" source="cal" style="endArrow=none;html=1;" target="uc07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a7" edge="1" parent="1" source="notif" style="endArrow=none;html=1;" target="uc07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i1" edge="1" parent="1" source="uc02" style="endArrow=open;dashed=1;html=1;endSize=12;" target="uc06" value="&amp;laquo;include&amp;raquo;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i2" edge="1" parent="1" source="uc02" style="endArrow=open;dashed=1;html=1;endSize=12;" target="uc07" value="&amp;laquo;include&amp;raquo;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i3" edge="1" parent="1" source="uc04" style="endArrow=open;dashed=1;html=1;endSize=12;" target="uc08" value="&amp;laquo;include&amp;raquo;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="uc09" style="endArrow=open;dashed=1;html=1;endSize=12;" target="uc04" value="&amp;laquo;extend&amp;raquo;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
