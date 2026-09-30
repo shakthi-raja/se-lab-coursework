@@ -28,3 +28,12 @@ Problem Statement 60, Podcast Guest Scheduling and Outline Builder. Selected and
 justified the Layered Architecture style, evaluated alternatives (Client-Server,
 Microservices), and modeled the system using a UML component diagram.
 Details are in the Lab 3 folder.
+
+### [Lab 4 - VibeCoding](lab-04/)
+
+Number Guessing Repair Lab using Pygame. Leveraged Claude (Anthropic) as an AI
+pair-programming partner to diagnose and fix an empty-input crash bug, implement
+dynamic range hints, add a visual 5-guess history panel with directional arrow
+indicators, and enforce a maximum attempt limit with a Game Over state and restart.
+Includes before/after gameplay videos and chat history export. Details are in the
+Lab 4 folder.
