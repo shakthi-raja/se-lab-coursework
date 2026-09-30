@@ -5,11 +5,13 @@ from game.text_box import TextBox
 
 class GameEngine:
     MAX_HISTORY = 5
+    MAX_ATTEMPTS = 7
 
     # Colors shared by feedback text and history chips
     COLOR_LOW = (80, 160, 240)
     COLOR_HIGH = (240, 100, 80)
     COLOR_CORRECT = (80, 220, 90)
+    COLOR_GAME_OVER = (230, 60, 60)
 
     def __init__(self, width, height):
         self.width = width
@@ -22,6 +24,7 @@ class GameEngine:
         self.feedback_msg = "Enter a number between 1 and 100"
         self.feedback_color = (220, 220, 220)
         self.game_won = False
+        self.game_over = False
         self.input_box = TextBox(width // 2 - 110, 150, 120, 48)
         self.submit_btn = pygame.Rect(width // 2 + 25, 150, 100, 48)
         self.font_title = pygame.font.SysFont(None, 42)
@@ -30,7 +33,7 @@ class GameEngine:
         self.font_btn = pygame.font.SysFont(None, 26)
 
     def submit_guess(self):
-        if self.game_won:
+        if self.game_won or self.game_over:
             return
 
         text = self.input_box.text.strip()
@@ -63,6 +66,12 @@ class GameEngine:
             self.feedback_color = self.COLOR_CORRECT
             self.game_won = True
 
+        # Out of attempts without a correct guess: the game is lost
+        if not self.game_won and self.attempts >= self.MAX_ATTEMPTS:
+            self.game_over = True
+            self.feedback_msg = f"GAME OVER! The number was {self.secret_number}."
+            self.feedback_color = self.COLOR_GAME_OVER
+
         # Record the guess, keeping only the latest MAX_HISTORY entries
         self.history.append((guess, status))
         self.history = self.history[-self.MAX_HISTORY:]
@@ -76,6 +85,7 @@ class GameEngine:
         self.feedback_msg = "Enter a number between 1 and 100"
         self.feedback_color = (220, 220, 220)
         self.game_won = False
+        self.game_over = False
         self.input_box.clear()
 
     def handle_event(self, event):
@@ -83,7 +93,7 @@ class GameEngine:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
                 self.submit_guess()
-            elif event.key == pygame.K_r and self.game_won:
+            elif event.key == pygame.K_r and (self.game_won or self.game_over):
                 self.reset()
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             if self.submit_btn.collidepoint(event.pos):
@@ -151,7 +161,7 @@ class GameEngine:
         title_surf = self.font_title.render("Number Guessing Arena", True, (245, 245, 245))
         screen.blit(title_surf, (self.width // 2 - title_surf.get_width() // 2, 35))
 
-        attempts_surf = self.font_medium.render(f"Attempts: {self.attempts}", True, (180, 185, 195))
+        attempts_surf = self.font_medium.render(f"Attempts: {self.attempts} / {self.MAX_ATTEMPTS}", True, (180, 185, 195))
         screen.blit(attempts_surf, (self.width // 2 - attempts_surf.get_width() // 2, 95))
 
         self.input_box.render(screen)
@@ -178,3 +188,6 @@ class GameEngine:
         if self.game_won:
             restart_surf = self.font_medium.render("Press [R] to Start a New Game", True, (255, 220, 80))
             screen.blit(restart_surf, (self.width // 2 - restart_surf.get_width() // 2, 345))
+        elif self.game_over:
+            retry_surf = self.font_medium.render("Press [R] to Try Again", True, (255, 220, 80))
+            screen.blit(retry_surf, (self.width // 2 - retry_surf.get_width() // 2, 345))
