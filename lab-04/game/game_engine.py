@@ -23,10 +23,17 @@ class GameEngine:
         if self.game_won:
             return
 
-        # BUG SYMPTOM:
-        # Submitting an empty input box crashes the game immediately.
-        guess = int(self.input_box.text)
-        
+        text = self.input_box.text.strip()
+
+        # Validate before converting: must be non-empty and all digits
+        if not text or not text.isdigit():
+            self.feedback_msg = "Please enter a valid number first!"
+            self.feedback_color = (240, 200, 60)  # warning yellow
+            self.input_box.clear()
+            return  # attempts is NOT incremented
+
+        guess = int(text)
+
         self.attempts += 1
         self.input_box.clear()
 
