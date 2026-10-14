@@ -37,3 +37,13 @@ dynamic range hints, add a visual 5-guess history panel with directional arrow
 indicators, and enforce a maximum attempt limit with a Game Over state and restart.
 Includes before/after gameplay videos and chat history export. Details are in the
 Lab 4 folder.
+
+### [Lab 5 - Static Code Analysis](lab-05/)
+
+Student Attendance Tracker script audit. Utilized Bandit, Pylint, and Flake8 to
+detect, analyze, and remediate security vulnerabilities (SSL validation, process
+execution, timeouts), code quality defects (mutable default arguments, resource
+leaks, boolean comparisons), and PEP 8 style formatting violations. Raised Pylint
+score from 4.55/10 to 10.00/10 with 0 Bandit vulnerabilities and 0 Flake8 errors.
+Details are in the Lab 5 folder.
+
