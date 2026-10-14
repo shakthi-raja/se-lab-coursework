@@ -49,7 +49,7 @@ def is_eligible(percentage):
 
 
 def shortage_list():
-    """Return a list of student roll numbers falling below minimum attendance."""
+    """Return student roll numbers below minimum attendance."""
     result = [
         roll_no for roll_no in STUDENTS
         if not is_eligible(attendance_percentage(roll_no))
@@ -78,7 +78,9 @@ def latest_date(roll_no):
         try:
             parsed_dates.append(datetime.strptime(date_str, "%Y-%m-%d"))
         except ValueError:
-            parsed_dates.append(datetime.strptime(date_str, "%Y-%m-%d".replace("-%m-", "-%m-")))
+            parsed_dates.append(
+                datetime.strptime(date_str, "%Y-%m-%d".replace("-%m-", "-%m-"))
+            )
     max_dt = max(parsed_dates)
     return max_dt.strftime("%Y-%m-%d")
 
@@ -89,7 +91,8 @@ def export_csv(path="attendance.csv"):
         writer = csv.writer(f)
         writer.writerow(["roll_no", "name", "percentage"])
         for roll_no, info in STUDENTS.items():
-            writer.writerow([roll_no, info["name"], attendance_percentage(roll_no)])
+            pct = attendance_percentage(roll_no)
+            writer.writerow([roll_no, info["name"], pct])
     return path
 
 
