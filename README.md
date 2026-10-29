@@ -47,3 +47,14 @@ leaks, boolean comparisons), and PEP 8 style formatting violations. Raised Pylin
 score from 4.55/10 to 10.00/10 with 0 Bandit vulnerabilities and 0 Flake8 errors.
 Details are in the Lab 5 folder.
 
+### [Lab 6 - Code and Branch Coverage Analysis](lab-06/)
+
+Marathon Registration system coverage audit (Repo 60). Evaluated statement and
+branch coverage gaps using Python `coverage`. Advanced baseline coverage (37%
+statement, 32% branch) to 100% statement coverage via `CodeCoverageTest_marathon_registration.py`
+and 100% full branch coverage (28/28 branches) via `BranchCoverageTest_marathon_registration.py`.
+Analyzed the insufficiency of statement coverage for compound Boolean predicates and
+synthesized a formal academic report with terminal captures. Details are in the
+Lab 6 folder.
+
+
