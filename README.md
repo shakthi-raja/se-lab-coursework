@@ -57,4 +57,15 @@ Analyzed the insufficiency of statement coverage for compound Boolean predicates
 synthesized a formal academic report with terminal captures. Details are in the
 Lab 6 folder.
 
+### [Lab 7 - Fuzzing for Input Validation Bugs](lab-07/)
+
+Marathon Registration Parser fuzz testing and defensive hardening (Repo 60). Leveraged
+Hypothesis property-based fuzzing (`st.text() | st.none()`) to systematically uncover
+hidden crashes (`AttributeError` on nulls, `ValueError` on malformed split tokens,
+`ZeroDivisionError` on empty splits). Hardened all parser routines with strict type guards,
+boundary checks, and safe fallback states, achieving 100% test pass rate under fuzzing.
+Includes authentic Alacritty terminal screenshots (SS1 to SS4) and a formal academic report.
+Details are in the Lab 7 folder.
+
+
 
